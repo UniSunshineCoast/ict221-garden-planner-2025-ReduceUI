@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.openjfx.javafxplugin' version '0.1.0' //0.0.13
 }
 
 group 'ict221'
@@ -19,17 +19,19 @@ ext {
     junitVersion = '5.9.1'
 }
 
-sourceCompatibility = '17'
-targetCompatibility = '17'
+java { //this was removed
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
 
 application {
-    mainModule = 'garden_planner.gui'
+    //mainModule = 'garden_planner.gui'
     mainClass = 'garden_planner.gui.RunGui'
 }
 
 javafx {
     version = '21.0.6'
-    modules = ['javafx.controls', 'javafx.fxml']
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.base']//['javafx.controls', 'javafx.fxml']
 }
 
 

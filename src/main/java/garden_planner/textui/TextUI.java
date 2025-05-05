@@ -12,6 +12,8 @@ import java.util.Scanner;
  *
  * This analyses one garden design and prints the costs.
  *
+ *
+ *
  * @author Mark Utting
  */
 public class TextUI {
