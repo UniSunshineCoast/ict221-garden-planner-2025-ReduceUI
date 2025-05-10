@@ -1,5 +1,6 @@
 package garden_planner.gui;
 
+import garden_planner.model.GardenBed;
 import garden_planner.model.GardenPlanner;
 import garden_planner.model.RectBed;
 import javafx.application.Application;
@@ -39,7 +40,7 @@ public class GuiMain extends Application {
         root.setCenter(pane);
 
         //creates all beds from the .createBasicDesign()
-        for (RectBed bed : planner.getBeds()) {
+        for (GardenBed bed : planner.getBeds()) {
             javafx.scene.shape.Rectangle rec = new javafx.scene.shape.Rectangle(bed.getWidth() * 100, bed.getHeight() * 100);
             rec.setX(bed.getLeft() * 100);
             rec.setY(bed.getTop() * 100);
