@@ -1,6 +1,87 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.BorderPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<BorderPane fx:controller="garden_planner.gui.Controller"
-            xmlns:fx="http://javafx.com/fxml">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="453.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="garden_planner.gui.Controller">
+   <center>
+      <Pane fx:id="garden" prefHeight="386.0" prefWidth="418.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox prefHeight="379.0" prefWidth="146.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="133.0" text="Details of Garden Bed">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Width" />
+                  <Label text="Height" GridPane.rowIndex="1" />
+                  <Label text="Area" GridPane.rowIndex="2" />
+                  <Label text="Perimeter" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <TextField fx:id="width" GridPane.columnIndex="1" />
+                  <TextField fx:id="height" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="area" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="perimeter" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <VBox prefHeight="168.0" prefWidth="126.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="133.0" text="Summary">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefWidth="133.0" text="Total Garden Area" />
+                  <Label fx:id="areaTotal" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="133.0" text="Label" />
+                  <Label prefHeight="18.0" prefWidth="133.0" text="Total Wall Length" />
+                  <Label fx:id="lengthTotal" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="133.0" text="Label" />
+                  <Label prefWidth="133.0" text="Total Soil Required" />
+                  <Label fx:id="soilTotal" alignment="CENTER_RIGHT" prefWidth="133.0" text="Label" />
+                  <Label prefWidth="133.0" text="Total Garden Cost" />
+                  <Label fx:id="costTotal" alignment="CENTER_RIGHT" prefWidth="133.0" text="Cost" />
+               </children>
+            </VBox>
+            <VBox prefHeight="78.0" prefWidth="126.0" spacing="5.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="addRect" mnemonicParsing="false" text="Add Rectangle" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="addCir" mnemonicParsing="false" text="Add Circle" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="addTri" mnemonicParsing="false" text="Add Triangle" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </left>
 </BorderPane>

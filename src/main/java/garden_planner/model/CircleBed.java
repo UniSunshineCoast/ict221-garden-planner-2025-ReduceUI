@@ -3,7 +3,7 @@ package garden_planner.model;
 public class CircleBed extends GardenBed {
     private double radius = 1.0;
 
-    public CircleBed(double radius) {}
+    //notrequired public CircleBed(double radius) {}
 
     public CircleBed() {}
 
