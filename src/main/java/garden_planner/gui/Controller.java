@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.Node;
 
 public class Controller {
@@ -60,6 +62,8 @@ public class Controller {
         planner = new GardenPlanner();
         planner.createBasicDesign();
         garden.setStyle("-fx-background-color: #007700");
+        garden.setStyle("-fx-background-image: url(\"grass.jpg\")");
+
         updateGUI();
 
         RectBed firstRect = (RectBed) planner.getBeds().get(0);
@@ -109,6 +113,10 @@ public class Controller {
                 rect.setX(bed.getLeft() * 100);
                 rect.setY(bed.getTop() * 100);
 
+                Image map = new Image("vege.jpg");
+                ImagePattern pattern = new ImagePattern(map, 20, 20, 40, 40, false);
+                rect.setFill(pattern);
+
                 rect.setOnMouseDragged(ev -> {
                     rect.setX(ev.getX());
                     rect.setY(ev.getY());
@@ -123,6 +131,10 @@ public class Controller {
                 cir.setCenterX((bed.getLeft()+radius)*100);
                 cir.setCenterY((bed.getTop()+radius)*100);
 
+                Image map = new Image("flowers.jpg");
+                ImagePattern pattern = new ImagePattern(map, 20, 20, 40, 40, false);
+                cir.setFill(pattern);
+
                 cir.setOnMouseDragged(ev -> {
                     cir.setCenterX(ev.getX());
                     cir.setCenterY(ev.getY());
@@ -136,10 +148,10 @@ public class Controller {
 
             //refresh Summary Data
             planner.recalculateTotals();
-            areaTotal.setText(String.format("%.3f", planner.getTotalGardenArea()));
-            lengthTotal.setText(String.format("%.3f", planner.getTotalWallLength()));
-            soilTotal.setText(String.format("%.3f", planner.getTotalGardenArea() * GardenPlanner.SOIL_DEPTH));
-            costTotal.setText(String.format("%.3f", planner.getTotalCost()));
+            areaTotal.setText(String.format("%.2f m2", planner.getTotalGardenArea()));
+            lengthTotal.setText(String.format("%.2f m2", planner.getTotalWallLength()));
+            soilTotal.setText(String.format("%.3f m3", planner.getTotalGardenArea() * GardenPlanner.SOIL_DEPTH));
+            costTotal.setText(String.format("$ %.2f", planner.getTotalCost()));
 
 
 
